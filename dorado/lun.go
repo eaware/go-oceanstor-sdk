@@ -226,7 +226,7 @@ func (d *Device) CreateLUNWithWait(ctx context.Context, u uuid.UUID, capacityGB 
 			return nil, fmt.Errorf("failed to wait that LUN is ready: %w", err)
 		}
 
-		if isReady == true {
+		if isReady {
 			return d.GetLUN(ctx, lun.ID)
 		}
 
@@ -244,7 +244,7 @@ func (d *Device) lunIsReady(ctx context.Context, LUNID int) (bool, error) {
 
 	if lun.HEALTHSTATUS == strconv.Itoa(StatusHealth) &&
 		lun.RUNNINGSTATUS == strconv.Itoa(StatusVolumeReady) &&
-		lun.ISCLONE == false {
+		!lun.ISCLONE {
 		return true, nil
 	}
 

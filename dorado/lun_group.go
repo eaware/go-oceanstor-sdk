@@ -198,11 +198,7 @@ func (d *Device) GetLunGroupByLunID(ctx context.Context, lunID int) (*LunGroup, 
 func (lg *LunGroup) IsAssociated() bool {
 	list := lg.ASSOCIATELUNIDLIST
 
-	if list != "" {
-		return true
-	}
-
-	return false
+	return list != ""
 }
 
 // GetLunGroupForce get lun group, and create lun group if not exist.

@@ -166,7 +166,7 @@ func (d *Device) StartLUNCopyWithWait(ctx context.Context, luncopyID int, timeou
 			return fmt.Errorf("failed to wait that luncopy is done: %w", err)
 		}
 
-		if isReady == true {
+		if isReady {
 			return nil
 		}
 

@@ -51,7 +51,7 @@ func (d *Device) GetTargetIQNs(ctx context.Context) ([]string, error) {
 		if err != nil {
 			return nil, fmt.Errorf("failed to parse target port ID: %w", err)
 		}
-		if strings.HasPrefix(iqn, "iqn") == false {
+		if !strings.HasPrefix(iqn, "iqn") {
 			return nil, fmt.Errorf("invalid target IQN: %s", iqn)
 		}
 

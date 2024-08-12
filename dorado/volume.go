@@ -108,7 +108,7 @@ func (d *Device) CreateLUNFromSourceByLUNClone(ctx context.Context, sourceLUNID 
 			return nil, fmt.Errorf("failed to wait that LUN is ready: %w", err)
 		}
 
-		if isReady == true {
+		if isReady {
 			return d.GetLUN(ctx, cloneLUN.ID)
 		}
 
@@ -177,7 +177,7 @@ func (c *Client) DeleteVolume(ctx context.Context, hyperMetroPairID string) erro
 	if err != nil {
 		return fmt.Errorf("failed to get lun information: %w", err)
 	}
-	if llun.ISADD2LUNGROUP == true {
+	if llun.ISADD2LUNGROUP {
 		lLungroup, err := c.LocalDevice.GetLunGroupByLunID(ctx, hmp.LOCALOBJID)
 		if err != nil {
 			return fmt.Errorf("failed to get lungroup by associated lun: %w", err)
@@ -192,7 +192,7 @@ func (c *Client) DeleteVolume(ctx context.Context, hyperMetroPairID string) erro
 	if err != nil {
 		return fmt.Errorf("failed to get lun information: %w", err)
 	}
-	if rlun.ISADD2LUNGROUP == true {
+	if rlun.ISADD2LUNGROUP {
 		rLungroup, err := c.RemoteDevice.GetLunGroupByLunID(ctx, hmp.REMOTEOBJID)
 		if err != nil {
 			return fmt.Errorf("failed to get lungroup by associated lun: %w", err)

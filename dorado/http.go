@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -12,7 +13,7 @@ import (
 
 func decodeBody(resp *http.Response, out interface{}, logger *log.Logger) error {
 	defer resp.Body.Close()
-	jb, err := ioutil.ReadAll(resp.Body)
+	jb, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return fmt.Errorf("failed to read response body: %w", err)
 	}
@@ -44,7 +45,7 @@ func (e ErrorResp) Error() error {
 		return ErrUnAuthorized
 	}
 
-	return fmt.Errorf("Dorado Internal Error: %s (code: %d) Suggestion: %s", e.Description, e.Code, e.Suggestion)
+	return fmt.Errorf("dorado Internal Error: %s (code: %d) Suggestion: %s", e.Description, e.Code, e.Suggestion)
 }
 
 // requestWithRetry do HTTP Request and retry if return UnAuthorized token.

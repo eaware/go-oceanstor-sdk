@@ -5,7 +5,6 @@ import (
 	"crypto/tls"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/cookiejar"
@@ -54,7 +53,7 @@ type ErrorResp struct {
 }
 
 var (
-	userAgent = fmt.Sprintf("DoradoGoClient")
+	userAgent = "DoradoGoClient"
 )
 
 // httpMu lock to create *http.Request while to call setToken
@@ -92,7 +91,7 @@ func NewClientDefaultToken(localIPs, remoteIPs []string, username, password, por
 	}
 
 	if logger == nil {
-		l := log.New(ioutil.Discard, "", log.LstdFlags)
+		l := log.New(io.Discard, "", log.LstdFlags)
 		logger = l
 	}
 

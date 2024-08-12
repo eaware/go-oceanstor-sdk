@@ -170,7 +170,7 @@ func (d *Device) DoMapping(ctx context.Context, mappingview *MappingView, hostgr
 		TYPE: strconv.Itoa(TypeMappingView),
 	}
 
-	if hostgroup.ISADD2MAPPINGVIEW == false {
+	if !hostgroup.ISADD2MAPPINGVIEW {
 		param.ASSOCIATEOBJTYPE = TypeHostGroup
 		param.ASSOCIATEOBJID = strconv.Itoa(hostgroup.ID)
 		err := d.AssociateMappingView(ctx, param)
@@ -179,7 +179,7 @@ func (d *Device) DoMapping(ctx context.Context, mappingview *MappingView, hostgr
 		}
 	}
 
-	if lungroup.ISADD2MAPPINGVIEW == false {
+	if !lungroup.ISADD2MAPPINGVIEW {
 		param.ASSOCIATEOBJTYPE = TypeLUNGroup
 		param.ASSOCIATEOBJID = strconv.Itoa(lungroup.ID)
 		err := d.AssociateMappingView(ctx, param)
@@ -192,7 +192,7 @@ func (d *Device) DoMapping(ctx context.Context, mappingview *MappingView, hostgr
 	if err != nil {
 		return fmt.Errorf("failed to get portgroup: %w", err)
 	}
-	if isExist == false {
+	if !isExist {
 		param.ASSOCIATEOBJTYPE = TypePortGroup
 		param.ASSOCIATEOBJID = strconv.Itoa(portgroupID)
 		err := d.AssociateMappingView(ctx, param)
