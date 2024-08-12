@@ -1,0 +1,25 @@
+// +build ignore
+
+package lib
+
+import (
+	"context"
+
+	"github.com/lovi-cloud/go-dorado-sdk/dorado"
+)
+
+// input param
+const (
+	StoragePoolName      = ""
+	HyperMetroDomainName = ""
+)
+
+// GetClient get dorado.Client
+func GetClient() (*dorado.Client, error) {
+	username := "admin"
+	password := ""
+	localIps := []string{"", ""}
+	remoteIps := []string{"", ""}
+
+	return dorado.NewClient(context.Background(), localIps, remoteIps, username, password, nil)
+}
