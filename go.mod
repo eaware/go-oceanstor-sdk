@@ -1,4 +1,4 @@
-module specials-gitea.kpn.org/gcp/go-dorado-sdk-master
+module specials-gitea.kpn.org/gcp/go-oceanstor-sdk
 
 go 1.22.4
 
