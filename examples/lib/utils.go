@@ -5,7 +5,7 @@ package lib
 import (
 	"context"
 
-	"github.com/lovi-cloud/go-dorado-sdk/dorado"
+	"specials-gitea.kpn.org/gcp/go-oceanstor-sdk/dorado"
 )
 
 // input param

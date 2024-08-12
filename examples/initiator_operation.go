@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/lovi-cloud/go-dorado-sdk/examples/lib"
+	"specials-gitea.kpn.org/gcp/go-oceanstor-sdk/example/lib"
 )
 
 func main() {

@@ -8,8 +8,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/lovi-cloud/go-dorado-sdk/dorado"
-	"github.com/lovi-cloud/go-dorado-sdk/example/lib"
+	"specials-gitea.kpn.org/gcp/go-oceanstor-sdk/dorado"
+	"specials-gitea.kpn.org/gcp/go-oceanstor-sdk/example/lib"
 )
 
 func main() {
